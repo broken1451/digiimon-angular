@@ -1,0 +1,41 @@
+  <div>
+    <div class="row">
+      <div class="col">
+          <div class="card mb-3" style="max-width: 540px;"  *ngFor="let digimon of digimon">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img [src]="digimon?.img" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Name:</h5>
+                <p class="card-text">{{digimon.name}}</p>
+                <p class="card-text">
+                    <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon?.level=='In Training'"> {{ digimon?.level }}</span>
+                     <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon?.level=='Training'"> {{ digimon?.level }}</span>
+                    <span class="badge bg-warning text-dark" *ngIf="digimon?.level=='Ultimate'"> {{ digimon?.level }}</span>
+                    <span class="badge rounded-pill bg-primary"  *ngIf="digimon?.level=='Rookie'">{{ digimon?.level }}</span>
+                    <span class="badge rounded-pill bg-success" *ngIf="digimon?.level=='Mega'">{{digimon?.level}}</span>
+                    <span class="badge rounded-pill bg-danger" *ngIf="digimon?.level=='Champion'">{{digimon?.level}}</span>
+                    <span class="badge rounded-pill bg-dark" *ngIf="digimon?.level=='Fresh'">{{digimon?.level}}</span>
+                </p>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="ratio ratio-16x9">
+          <iframe
+            width="560"
+            height="315"
+            [src]="idVideo | youtubeVideo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>

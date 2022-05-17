@@ -1,0 +1,19 @@
+
+
+<ng-container class="animate__animated animate__fadeIn animate__delay-1s">
+  <form class="d-flex animate__animated animate__fadeIn animate__delay-1s" [formGroup]="form">
+      <select (change)='onChangeSelectLvl($event)' formControlName="typeDigimon" name='type' id="" class="form-control" required>
+         <option value="" disabled>Seleccione un nivel</option>
+         <option *ngFor="let lvlsNoRepeat of lvlsNoRepeat" [value]="lvlsNoRepeat">{{lvlsNoRepeat}}</option>
+      </select>
+  </form>
+  <div class="mt-4"></div>
+  <app-loading [loading]="loading"></app-loading>
+  <div  style="display: flex; justify-content: center;" *ngIf="digimons && !loading" class="animate__animated animate__fadeIn animate__delay-1s">
+    <button type="button" class="btn btn-primary" (click)="anteriores()">Anterior</button>
+    <button type="button" class="btn btn-primary ms-5" (click)="siguentes()" [disabled]="page >= 210" >Siguiente</button>
+</div>
+<app-digimons  (sendInfoDigimon)="recibeInfoDigimon($event)" [digimons]="digimons" [page]="page" *ngIf="digimons && !loading"></app-digimons>
+<app-not-found *ngIf="(digimons | filterDigimon:page:digimonService.terminoSearch)?.length == 0 && digimonSearch && !loading"></app-not-found>
+<app-modal-digimon [digimon]="digimon"></app-modal-digimon>
+</ng-container>

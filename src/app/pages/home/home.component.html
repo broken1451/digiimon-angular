@@ -1,0 +1,12 @@
+<app-loading [loading]="loading"></app-loading>
+
+<ng-container *ngIf="digimons.length > 0  && !loading" class="animate__animated animate__fadeIn animate__delay-1s">
+<div  style="display: flex; justify-content: center;"  class="animate__animated animate__fadeIn animate__delay-1s">
+    <button type="button" class="btn btn-primary" (click)="anteriores()">Anterior</button>
+    <button type="button" class="btn btn-primary ms-5" (click)="siguentes()" [disabled]="page >= 210" >Siguiente</button>
+</div>
+<app-digimons (sendInfoDigimon)="recibeInfoDigimon($event)" [digimons]="digimons" [page]="page"></app-digimons>
+</ng-container>
+
+<app-not-found *ngIf="(digimons | filterDigimon: page:digimonService.terminoSearch).length == 0 && digimonSearch && !loading"></app-not-found>
+<app-modal-digimon [digimon]="digimon"></app-modal-digimon>

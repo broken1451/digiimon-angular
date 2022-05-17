@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <div class="card mb-3" style="max-width: 540px; border: none;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="digimon?.img" class="img-fluid rounded-start" [alt]="digimon?.name">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{digimon?.name}}</h5>
+          <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon?.level=='In Training'"> {{ digimon?.level }}</span>
+           <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon?.level=='Training'"> {{ digimon?.level }}</span>
+          <span class="badge bg-warning text-dark" *ngIf="digimon?.level=='Ultimate'"> {{ digimon?.level }}</span>
+          <span class="badge rounded-pill bg-primary"  *ngIf="digimon?.level=='Rookie'">{{ digimon?.level }}</span>
+          <span class="badge rounded-pill bg-success" *ngIf="digimon?.level=='Mega'">{{digimon?.level}}</span>
+          <span class="badge rounded-pill bg-danger" *ngIf="digimon?.level=='Champion'">{{digimon?.level}}</span>
+          <span class="badge rounded-pill bg-dark" *ngIf="digimon?.level=='Fresh'">{{digimon?.level}}</span>
+      </div>
+    </div>
+     <div class="modal-footer" style="border-top: none;margin-bottom: -5%;margin-top: -4%;">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>

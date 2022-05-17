@@ -1,0 +1,12 @@
+<div class="container">
+  <form class="row g-3" [formGroup]="form" (keyup)="search()">
+    <div class="col-sm-10">
+      <input style="width: 121%;" type="text" formControlName="search" placeholder="Search by name" class="form-control" id="inputPassword" />
+    </div>
+  </form>
+</div>
+
+<ng-container>
+ <app-not-found *ngIf="digimonSearch"></app-not-found>
+ <app-name [digimon]="digimon" [idVideo]="idVideo" class="container mt-4 animate__animated animate__fadeIn animate__delay-1s" *ngIf="!digimonSearch && (digimon)?.length > 0"></app-name>
+</ng-container>

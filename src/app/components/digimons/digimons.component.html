@@ -1,0 +1,20 @@
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-3 animate__animated animate__fadeIn animate__delay-1s">
+  <div class="col" *ngFor="let digimon of digimons | filterDigimon:page:digimonService.terminoSearch">
+    <div class="card h-100">
+      <img [src]="digimon.img" class="card-img-top" [alt]="digimon.name" />
+      <div class="card-body">
+        <h5 class="card-title">{{ digimon.name }}</h5>
+        <p class="card-text">
+          <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon.level=='In Training'"> {{ digimon.level }}</span>
+          <span class="badge rounded-pill bg-info text-dark" *ngIf="digimon.level=='Training'"> {{ digimon.level }}</span>
+          <span class="badge bg-warning text-dark" *ngIf="digimon.level=='Ultimate'"> {{ digimon.level }}</span>
+          <span class="badge rounded-pill bg-primary"  *ngIf="digimon.level=='Rookie'">{{ digimon.level }}</span>
+          <span class="badge rounded-pill bg-success" *ngIf="digimon.level=='Mega'">{{digimon.level}}</span>
+          <span class="badge rounded-pill bg-danger" *ngIf="digimon.level=='Champion'">{{digimon.level}}</span>
+          <span class="badge rounded-pill bg-dark" *ngIf="digimon.level=='Fresh'">{{digimon.level}}</span>
+        </p>
+          <button (click)="sendInfo(digimon)" type="button" class="btn btn-primary btn-lg btn-block w-100"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
